@@ -12,8 +12,6 @@ DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/portalpro.db")
 
 class Students
   include DataMapper::Resource
- 
-
   property :id, Serial
   property :fName, Text, :required => true
   property :lName, Text, :required => true
@@ -33,8 +31,20 @@ class Students
 end
 
 
+class Courses
+  include DataMapper::Resource
+  property :id, Serial
+  property :coursecode, Text, :required => true
+  property :coursetitle, Text, :required => true
+  property :creditunit, Text, :required => true
+  property :session, Text, :required => true
+  property :amount, Text, :required => true
+  property :complete, Boolean, :required => true, :default => false
+  property :created_at, DateTime
+  property :updated_at, DateTime
+end
 
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/portalpro.db") 
+
 
 class Classi
   include DataMapper::Resource
@@ -49,7 +59,7 @@ class Classi
 end
 
 
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/portalpro.db") 
+
 
 class Classii
   include DataMapper::Resource
